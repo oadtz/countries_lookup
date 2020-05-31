@@ -10,10 +10,10 @@ import { CountryService } from '@app/shared/services/country.service';
 })
 export class CountryListComponent {
   
-  constructor(private _countryService: CountryService) { }
+  constructor(private _service: CountryService) { }
 
   get countries (): Country[] {
-    return this._countryService.countries;
+    return this._service.countries;
   }
 
 }

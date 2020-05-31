@@ -1,4 +1,14 @@
 <app-layout-main>
-    <app-countries-filter></app-countries-filter>
-    <app-countries-country-list></app-countries-country-list>
+    <div *ngIf="isFetching; else mainContent" class="display-4 text-muted text-center loading">
+        Loading...
+    </div>
+    <ng-template #mainContent>
+        <div *ngIf="error" class="display-4 text-danger text-center error">
+            Fetching data failed
+        </div>
+        <ng-template [ngIf]="!error">
+            <app-countries-filter></app-countries-filter>
+            <app-countries-country-list></app-countries-country-list>
+        </ng-template >
+    </ng-template>
 </app-layout-main>

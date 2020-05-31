@@ -4,7 +4,7 @@
             <app-countries-country *ngFor="let country of countries" [country]="country"></app-countries-country>
         </div>
         <ng-template #noCountries>
-            <p class="display-4 text-center">No countries found</p>
+            <div class="display-4 text-center text-muted no-countries">No countries found</div>
         </ng-template>
     </div>
 </div>
