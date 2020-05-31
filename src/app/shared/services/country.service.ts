@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { tap } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 import { Country } from '@app/shared/models/country.model';
-import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -32,16 +31,13 @@ export class CountryService {
   getCountries = () => {
     this._http
         .get('https://restcountries.eu/rest/v2/all')
-        .pipe(tap(event => {
-          console.log (event);
-        }))
         .subscribe((countries: Country[]) => {
             // Store result in countries array
             this._countries = countries;
             this.error.next(null);
             this.fetchingStatus.next(false);
         }, (error) => {
-            // Emit error to subscriber
+            // Send error message to subscriber
             this.error.next(error.message);
             this.fetchingStatus.next(false);
         });

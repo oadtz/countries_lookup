@@ -7,5 +7,5 @@ import { Country } from '@app/shared/models/country.model';
   styleUrls: ['./country.component.css']
 })
 export class CountryComponent {
-  @Input() country: Country;
+  @Input() country: Country = { name: '', capital: '', region: '', population: 0 };
 }
