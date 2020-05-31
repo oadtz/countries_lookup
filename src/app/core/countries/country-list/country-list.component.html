@@ -1,0 +1,10 @@
+<div class="row">
+    <div class="col">
+        <div *ngIf="countries && countries.length > 0; else noCountries">
+            <app-countries-country *ngFor="let country of countries" [country]="country"></app-countries-country>
+        </div>
+        <ng-template #noCountries>
+            <p class="display-4 text-center">No countries found</p>
+        </ng-template>
+    </div>
+</div>
